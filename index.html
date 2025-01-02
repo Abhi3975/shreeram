@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expert Guidance for Engineering Colleges in India</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #614385, #516395);
+            background-attachment: fixed;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+         
+        body {
+    overflow-x: hidden;
+}
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+
+        header {
+            background-color: #ffffff;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: #614385;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        .nav-links a:hover {
+            color: #516395;
+            background-color: rgba(97, 67, 133, 0.1);
+            box-shadow: 0 0 10px rgba(97, 67, 133, 0.3);
+        }
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: #614385;
+            margin: 2px 0;
+            transition: 0.4s;
+        }
+        @media screen and (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: #ffffff;
+                padding: 20px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-links li {
+                margin: 10px 0;
+            }
+        }
+
+        /* Hero Section */
+
+        .hero {
+            padding: 8rem 0 1rem;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            color: #ffffff;
+            /* margin-bottom: 1rem; */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            padding:0;
+            margin-bottom : 0.5rem;
+        }
+
+        /* Features Slideshow */
+
+        .features {
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .slideshow-container {
+    position: relative;
+    overflow: hidden;
+    width: 500px; /* Set to desired square size */
+    height: 400px; /* Match width for square shape */
+    margin: auto; /* Center the container */
+}
+
+.slideshow {
+    display: flex;
+    transition: transform 0.5s ease;
+    height: 100%; /* Ensure it matches the container height */
+}
+
+.feature-card {
+    flex: 0 0 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%; /* Fill the square container */
+    background-color:#f4f4f4;
+    color:  #614385;
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+}
+
+        .feature-card img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            color: #614385;
+            margin-bottom: 1rem;
+        }
+        .slideshow-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.5);
+            color: #614385;
+            border: none;
+            font-size: 24px;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .slideshow-arrow:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        .prev {
+            left: 10px;
+        }
+        .next {
+            right: 10px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            /* margin-top: 2rem; */
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn.primary {
+            background-color: #ffffff;
+            color: #614385;
+        }
+
+        .btn.primary:hover {
+            background-color: #f0f0f0;
+        }
+
+        .btn.secondary {
+            background-color: transparent;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+        }
+
+        .btn.secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Services Section */
+
+        .services {
+            padding: 4rem 0;
+        }
+
+        .services h2 {
+            font-size: 2rem;
+            color: #ffffff;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .service-cards {
+            display: flex;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .service-card {
+            flex: 1;
+            min-width: 250px;
+            height: 300px;
+            perspective: 1000px;
+        }
+
+        .service-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .service-card:hover .service-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .service-card-front,
+        .service-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .service-card-front {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .service-card-back {
+            background-color: #ffffff;
+            color: #614385;
+            transform: rotateY(180deg);
+        }
+
+        .service-card img {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer Styles */
+
+        footer {
+            background-color: #ffffff;
+            padding: 4rem 0 2rem;
+            color: #614385;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-section {
+            grid-column: span 3;
+        }
+
+        .footer-section h4 {
+            font-size: 1.2rem;
+            color: #516395;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-section h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #614385, #516395);
+            transition: width 0.3s ease;
+        }
+
+        .footer-section:hover h4::after {
+            width: 100%;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #614385;
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-section a:hover {
+            color: #516395;
+            transform: translateX(5px);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #614385, #516395);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(97, 67, 133, 0.3);
+        }
+
+        .social-icon img {
+            width: 20px;
+            height: 20px;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(97, 67, 133, 0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.05;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .footer-background::before,
+        .footer-background::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #614385, #516395);
+        }
+
+        .footer-background::before {
+            top: -100px;
+            left: -100px;
+        }
+
+        .footer-background::after {
+            bottom: -100px;
+            right: -100px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-top: 1rem;
+        }
+
+        .newsletter-input {
+            flex-grow: 1;
+            padding: 0.5rem 1rem;
+            border: 1px solid #614385;
+            border-radius: 5px 0 0 5px;
+            font-size: 1rem;
+        }
+
+        .newsletter-button {
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, #614385, #516395);
+            color: #ffffff;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .newsletter-button:hover {
+            opacity: 0.9;
+        }
+
+        @media screen and (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-section {
+                grid-column: span 2;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <img src="image1.jpeg" alt="ShreeRam Consultancy Logo">
+            </div>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="colleges.html">Colleges</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <h1>Your Gateway to Engineering Excellence</h1>
+                <p>Expert guidance for choosing the right engineering college in India. Let us help you shape your future.
+                </p>
+            </div>
+        </section>
+
+        <div class="cta-buttons">
+            <a href="#colleges" class="btn primary">Explore Colleges</a>
+            <a href="#contact" class="btn secondary">Book Consultation</a>
+        </div>
+
+        <section class="features">
+            <div class="container">
+                <div class="slideshow-container">
+                    <div class="slideshow">
+                        <div class="feature-card">
+                            <img src="college1.jpeg" alt="Graduation Cap Icon">
+                            <h3>500+ Colleges</h3>
+                            <p>Network of top engineering institutions</p>
+                        </div>
+                        <div class="feature-card">
+                            <img src="expert_guidance.avif" alt="Book Open Icon">
+                            <h3>Expert Counseling</h3>
+                            <p>Personalized guidance for your career</p>
+                        </div>
+                        <div class="feature-card">
+                            <img src="industrial_experience.jpg" alt="Building Icon">
+                            <h3>7 Years</h3>
+                            <p>Of industry experience</p>
+                        </div>
+                        <div class="feature-card">
+                            <img src="students.png" alt="Users Icon">
+                            <h3>3000+ Students</h3>
+                            <p>Successfully placed</p>
+                        </div>
+                    </div>
+                    <button class="slideshow-arrow prev">&#10094;</button>
+                    <button class="slideshow-arrow next">&#10095;</button>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section id="services" class="services">
+            <div class="container">
+                <h2>Our Services</h2>
+                <div class="service-cards">
+                    <div class="service-card">
+                        <div class="service-card-inner">
+                            <div class="service-card-front">
+                                <img src="college selection.webp" alt="College Selection Icon">
+                                <h3>College Selection</h3>
+                            </div>
+                            <div class="service-card-back">
+                                <h3>College Selection</h3>
+                                <p>Expert guidance in choosing the right engineering college for your future</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-card-inner">
+                            <div class="service-card-front">
+                                <img src="application process .jpg" alt="Application Process Icon">
+                                <h3>Application Process</h3>
+                            </div>
+                            <div class="service-card-back">
+                                <h3>Application Process</h3>
+                                <p>Complete assistance with admission procedures and documentation</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-card-inner">
+                            <div class="service-card-front">
+                                <img src="counselling .jpeg" alt="Career Counseling Icon">
+                                <h3>Career Counseling</h3>
+                            </div>
+                            <div class="service-card-back">
+                                <h3>Career Counseling</h3>
+                                <p>Professional guidance for your engineering career path and specialization</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About Us</h4>
+                    <p>ShreeRam Consultancy: Your trusted partner in engineering education counseling since 2014. We're
+                        committed to helping you achieve your academic and career goals.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="colleges.html">Colleges</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <img src="location.png" alt="Location" class="contact-icon">
+                            <span>Neb sarai, Saket,DELHI,110017</span>
+                        </div>
+                        <div class="contact-item">
+                            <img src="phone.jpg" alt="Phone" class="contact-icon">
+                            <span>+91 96311 64574</span>
+                        </div>
+                        <div class="contact-item">
+                            <img src="email.avif" alt="Email" class="contact-icon">
+                            <span>shreeramconsultancy3@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Stay Connected</h4>
+                    <p>Subscribe to our newsletter for updates and tips on college admissions.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" class="newsletter-input" required>
+                        <button type="submit" class="newsletter-button">Subscribe</button>
+                    </form>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon">
+                            <img src="facebook.svg" alt="Facebook">
+                        </a>
+                        <a href="#" class="social-icon">
+                            <img src="twitter.svg" alt="Twitter">
+                        </a>
+                        <a href="#" class="social-icon">
+                            <img src="instagram.svg" alt="Instagram">
+                        </a>
+                        <a href="#" class="social-icon">
+                            <img src="linkedin.svg" alt="LinkedIn">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ShreeRam Consultancy. All rights reserved.</p>
+            </div>
+        </div>
+        <div class="footer-background"></div>
+    </footer>
+
+    <script>
+        // Hamburger menu functionality
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Slideshow functionality
+        const slideshow = document.querySelector('.slideshow');
+        const slides = document.querySelectorAll('.feature-card');
+        const prevButton = document.querySelector('.prev');
+        const nextButton = document.querySelector('.next');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            if (index < 0) {
+                currentSlide = slides.length - 1;
+            } else if (index >= slides.length) {
+                currentSlide = 0;
+            } else {
+                currentSlide = index;
+            }
+            slideshow.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        prevButton.addEventListener('click', () => showSlide(currentSlide - 1));
+        nextButton.addEventListener('click', () => showSlide(currentSlide + 1));
+
+        // Footer animation (keep this part unchanged)
+        const footerSections = document.querySelectorAll('.footer-section');
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        footerSections.forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(section);
+        });
+    </script>
+
+</body>
+
+</html>
+

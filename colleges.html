@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Engineering Colleges - ShreeRam Consultancy</title>
+    <style>
+        /* Base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f0f4f8;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header styles */
+
+        header {
+            background-color: #ffffff;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: #614385;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        .nav-links a:hover {
+            color: #516395;
+            background-color: rgba(97, 67, 133, 0.1);
+            box-shadow: 0 0 10px rgba(97, 67, 133, 0.3);
+        }
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: #614385;
+            margin: 2px 0;
+            transition: 0.4s;
+        }
+        @media screen and (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: #ffffff;
+                padding: 20px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-links li {
+                margin: 10px 0;
+            }
+        }
+
+
+        /* Hero section */
+        .hero {
+            background: linear-gradient(135deg, #614385, #516395);
+            color: #fff;
+            padding: 8rem 0 4rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Entrance exams section */
+        .entrance-exams {
+            background-color: #fff;
+            padding: 4rem 0;
+        }
+
+        .entrance-exams h2 {
+            text-align: center;
+            color: #614385;
+            margin-bottom: 2rem;
+        }
+
+        .exam-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .exam-card {
+            background-color: #f0f4f8;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .exam-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .exam-card h3 {
+            color: #516395;
+            margin-bottom: 1rem;
+        }
+
+        /* Colleges list section */
+        .colleges-list {
+            padding: 4rem 0;
+        }
+
+        .colleges-list h2 {
+            text-align: center;
+            color: #614385;
+            margin-bottom: 2rem;
+        }
+
+        .college-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .college-card {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .college-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .college-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .college-card-content {
+            padding: 1.5rem;
+        }
+
+        .college-card h3 {
+            color: #516395;
+            margin-bottom: 1rem;
+        }
+
+        .college-card p {
+            margin-bottom: 0.5rem;
+        }
+
+        .college-card .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: #614385;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .college-card .btn:hover {
+            background-color: #516395;
+        }
+
+        /* College search section */
+        .college-search {
+            background-color: #fff;
+            padding: 4rem 0;
+        }
+
+        .college-search h2 {
+            text-align: center;
+            color: #614385;
+            margin-bottom: 2rem;
+        }
+
+        #collegeSearchForm {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 0.5rem;
+            color: #516395;
+        }
+
+        .form-group select {
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        #collegeSearchForm button {
+            grid-column: 1 / -1;
+            padding: 0.8rem 1.5rem;
+            background-color: #614385;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #collegeSearchForm button:hover {
+            background-color: #516395;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #c6b9d5;
+            padding: 4rem 0 2rem;
+            color: #614385;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-section {
+            grid-column: span 3;
+        }
+
+        .footer-section h4 {
+            font-size: 1.2rem;
+            color: #516395;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-section h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #614385, #516395);
+            transition: width 0.3s ease;
+        }
+
+        .footer-section:hover h4::after {
+            width: 100%;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #614385;
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-section a:hover {
+            color: #516395;
+            transform: translateX(5px);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #614385, #516395);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(97, 67, 133, 0.3);
+        }
+
+        .social-icon img {
+            width: 20px;
+            height: 20px;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(97, 67, 133, 0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.05;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .footer-background::before,
+        .footer-background::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #614385, #516395);
+        }
+
+        .footer-background::before {
+            top: -100px;
+            left: -100px;
+        }
+
+        .footer-background::after {
+            bottom: -100px;
+            right: -100px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-top: 1rem;
+        }
+
+        .newsletter-input {
+            flex-grow: 1;
+            padding: 0.5rem 1rem;
+            border: 1px solid #614385;
+            border-radius: 5px 0 0 5px;
+            font-size: 1rem;
+        }
+
+        .newsletter-button {
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, #614385, #516395);
+            color: #ffffff;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .newsletter-button:hover {
+            opacity: 0.9;
+        }
+
+        @media screen and (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-section {
+                grid-column: span 2;
+            }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .burger {
+                display: block;
+            }
+
+            .exam-cards,
+            .college-cards {
+                grid-template-columns: 1fr;
+            }
+
+            #collegeSearchForm {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <img src="image1.jpeg" alt="ShreeRam Consultancy Logo">
+            </div>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="colleges.html">Colleges</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Top Engineering Colleges</h1>
+                <p>Explore the best engineering institutions in India and find your perfect fit</p>
+            </div>
+        </section>
+
+        <section class="entrance-exams">
+            <div class="container">
+                <h2>Common Entrance Exams</h2>
+                <div class="exam-cards">
+                    <div class="exam-card">
+                        <h3>JEE Main</h3>
+                        <p>Joint Entrance Examination for admission to NITs, IIITs, and other top engineering colleges</p>
+                    </div>
+                    <div class="exam-card">
+                        <h3>JEE Advanced</h3>
+                        <p>Advanced examination for admission to Indian Institutes of Technology (IITs)</p>
+                    </div>
+                    <div class="exam-card">
+                        <h3>BITSAT</h3>
+                        <p>Birla Institute of Technology and Science Admission Test for BITS Pilani campuses</p>
+                    </div>
+                    <div class="exam-card">
+                        <h3>VITEEE</h3>
+                        <p>VIT Engineering Entrance Examination for admission to VIT University</p>
+                    </div>
+                
+                </div>
+            </div>
+        </section>
+
+        <section class="colleges-list">
+            <div class="container">
+                <h2>Featured Colleges</h2>
+                <div class="college-cards">
+                    <!-- College Cards -->
+                    <div class="college-card">
+                        <img src="iit bombay.jpg" alt="IIT Bombay Campus">
+                        <div class="college-card-content">
+                            <h3>Indian Institute of Technology Bombay</h3>
+                            <p><strong>Location:</strong> Mumbai, Maharashtra</p>
+                            <p><strong>Entrance Exam:</strong> JEE Advanced</p>
+                            <p><strong>Notable Programs:</strong> Computer Science, Electrical Engineering, Mechanical Engineering</p>
+                            <a href="#" class="btn">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="college-card">
+                        <img src="nit tirchy.jpeg" alt="NIT Trichy Campus">
+                        <div class="college-card-content">
+                            <h3>National Institute of Technology Tiruchirappalli</h3>
+                            <p><strong>Location:</strong> Tiruchirappalli, Tamil Nadu</p>
+                            <p><strong>Entrance Exam:</strong> JEE Main</p>
+                            <p><strong>Notable Programs:</strong> Civil Engineering, Electronics and Communication, Chemical Engineering</p>
+                            <a href="#" class="btn">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="college-card">
+                        <img src="bits pilani .jpg" alt="BITS Pilani Campus">
+                        <div class="college-card-content">
+                            <h3>Birla Institute of Technology and Science, Pilani</h3>
+                            <p><strong>Location:</strong> Pilani, Rajasthan</p>
+                            <p><strong>Entrance Exam:</strong> BITSAT</p>
+                            <p><strong>Notable Programs:</strong> Computer Science, Electrical and Electronics, Mechanical Engineering</p>
+                            <a href="#" class="btn">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="college-card">
+                        <img src="vit .webp" alt="VIT Vellore Campus">
+                        <div class="college-card-content">
+                            <h3>Vellore Institute of Technology</h3>
+                            <p><strong>Location:</strong> Vellore, Tamil Nadu</p>
+                            <p><strong>Entrance Exam:</strong> VITEEE</p>
+                            <p><strong>Notable Programs:</strong> Software Engineering, Biotechnology, Aerospace Engineering</p>
+                            <a href="#" class="btn">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="college-card">
+                        <img src="medical cllegw .jpeg" alt="VIT Vellore Campus">
+                        <div class="college-card-content">
+                            <h3> PRIVATE MEDICAL COLLEGE </h3>
+                            <p><strong>Location:</strong> any medical college </p>
+                            <p><strong>Entrance Exam:</strong>NEET</p></p>
+                            <p><strong>Notable Programs:</strong> B.Sc (Hons) Nursing, B.Sc Post Basic Nursing, and B.Sc Paramedical.
+                            <a href="#" class="btn">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="college-search">
+            <div class="container">
+                <h2>Find Your Ideal College</h2>
+                <form id="collegeSearchForm">
+                    <div class="form-group">
+                        <label for="location">Location:</label>
+                        <select id="location" name="location">
+                            <option value="">All Locations</option>
+                            <option value="mumbai">Mumbai</option>
+                            <option value="delhi">Delhi</option>
+                            <option value="bangalore">Bangalore</option>
+                            <option value="chennai">Chennai</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="program">Program:</label>
+                        <select id="program" name="program">
+                            <option value="">All Programs</option>
+                            <option value="computer-science">Computer Science</option>
+                            <option value="electrical">Electrical Engineering</option>
+                            <option value="mechanical">Mechanical Engineering</option>
+                            <option value="civil">Civil Engineering</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exam">Entrance Exam:</label>
+                        <select id="exam" name="exam">
+                            <option value="">All Exams</option>
+                            <option value="jee-main">JEE Main</option>
+                            <option value="jee-advanced">JEE Advanced</option>
+                            <option value="bitsat">BITSAT</option>
+                            <option value="viteee">VITEEE</option>
+                        </select>
+                    </div>
+                    <button type="submit">Search Colleges</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About Us</h4>
+                    <p>ShreeRam Consultancy: Your trusted partner in engineering education counseling since 2014. We're committed to helping you achieve your academic and career goals.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="colleges.html">Colleges</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <img src="location.png" alt="Location" class="contact-icon">
+                            <span>Neb sarai, Saket,Delhi,110017</span>
+                        </div>
+                        <div class="contact-item">
+                            <img src="phone.jpg" alt="Phone" class="contact-icon">
+                            <span>+91 96311 64574</span>
+                        </div>
+                        <div class="contact-item">
+                            <img src="email.avif" alt="Email" class="contact-icon">
+                            <span>shreeramconsultancy3@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Stay Connected</h4>
+                    <p>Subscribe to our newsletter for updates and tips on college admissions.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" class="newsletter-input" required>
+                        <button type="submit" class="newsletter-button">Subscribe</button>
+                    </form>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><img src="facebook.svg" alt="Facebook"></a>
+                        <a href="#" class="social-icon"><img src="twitter.svg" alt="Twitter"></a>
+                        <a href="#" class="social-icon"><img src="instagram.svg" alt="Instagram"></a>
+                        <a href="#" class="social-icon"><img src="linkedin.svg" alt="LinkedIn"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ShreeRam Consultancy. All rights reserved.</p>
+            </div>
+        </div>
+        <div class="footer-background"></div>
+    </footer>
+
+
+    <script>
+                const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const burger = document.querySelector('.burger');
+            const nav = document.querySelector('.nav-links');
+            const navLinks = document.querySelectorAll('.nav-links li');
+
+            burger.addEventListener('click', () => {
+                nav.classList.toggle('nav-active');
+
+                navLinks.forEach((link, index) => {
+                    if (link.style.animation) {
+                        link.style.animation = '';
+                    } else {
+                        link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+                    }
+                });
+
+                burger.classList.toggle('toggle');
+            });
+
+            const collegeSearchForm = document.getElementById('collegeSearchForm');
+            if (collegeSearchForm) {
+                collegeSearchForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const location = document.getElementById('location').value;
+                    const program = document.getElementById('program').value;
+                    const exam = document.getElementById('exam').value;
+                    
+                    alert(`Searching for colleges with the following criteria:
+                    Location: ${location || 'Any'}
+                    Program: ${program || 'Any'}
+                    Entrance Exam: ${exam || 'Any'}`);
+                });
+            }
+        });
+
+
+        const footerSections = document.querySelectorAll('.footer-section');
+        
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        footerSections.forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(section);
+        });
+
+    </script>
+</body>
+</html>
+
